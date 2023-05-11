@@ -93,29 +93,13 @@ get numberOfCards (){
           `Player One is the winner, points: ${this.point.playerOne}`
           `Player two lost, points: ${this.point.playerTwo}`
         }
-      //  if  (playerOneDeck.length = 0) {
-      //    `player two is the winner`
-      //   }
-      //   else if (playerTwoDeck = 0 ){
-      //     `player one is the winner`
-      //   }
-      
+     
           else{
            start()
           }
         }
       
   
-  //   dealCard(){
-  //     while 
-  //      (dek.length != 0 ){
-  //        for(let i = 0; i =2; i++)  {
-  //       return dek.splice(i,1)
-         
-  //        }
-  //      }
-      
-  //  }
 
 } 
 
@@ -133,22 +117,14 @@ class Game{
 
   
 
-  turns(){
-    for(let i = 0; i =26; i++){
-
-
-
-    }
-
 
   }
 
 
-}
 
 
-let x = new Game()
-//x.dealCard()
+
+
 
 
 
