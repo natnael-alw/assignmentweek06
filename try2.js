@@ -1,5 +1,4 @@
 let playerOneDeck, playerTwoDeck
- let turnOn
 
 const SUITS = ['♣︎','♦︎','♠︎','♥︎']
 const VALUES= [ '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
@@ -14,7 +13,7 @@ this.value= value
 }
 }
 
-function freshDeck(){
+function deck(){
   return SUITS.flatMap(suit=> {
     return VALUES.map(value =>{
       return new Card(suit, value)
@@ -24,7 +23,7 @@ function freshDeck(){
 }
 
 class Deck {
-  constructor(cards= freshDeck()){
+  constructor(cards= deck()){
       this.cards = cards
       
   }
@@ -61,46 +60,55 @@ class Player{
       dek.shuffle()
     
       
-      const deckMidpoint = Math.ceil(dek.numberOfCards/2)
-      playerOneDeck = new Deck (dek.cards.slice(0, deckMidpoint))
-      playerTwoDeck = new Deck (dek.cards.slice(deckMidpoint, dek.numberOfCards))
+      let deckMidpoint = Math.ceil(dek.numberOfCards/2)
+     let playerOneDeck = new Deck (dek.cards.slice(0, deckMidpoint))
+      let playerTwoDeck = new Deck (dek.cards.slice(deckMidpoint, dek.numberOfCards))
       turnOn = true  //starts the turns right after shuffling
-       
-        
-        function flipCards(){
-         if (turnOn= true){
-            let playerOneCard = playerOneDeck.pop();
-            let playerTwoCard = playerTwoDeck.pop()
-          
+
+      function flipCards(){
+          let playerOne = new Player(0)
+             let playerTwo = new Player(0)
+        while ((playerOneDeck.cards.length && playerTwoDeck.cards.length)!== 0){
+            let playerOneCard = playerOneDeck.cards.pop();
             
-            
-            if (cardValue[playerOneCard] < cardValue[playerTwoCard]){
-              this.points.playerTwo+= 3
+            let playerTwoCard = playerTwoDeck.cards.pop()
+     
+  
+          // console.log('round start')
+           //console.log(cardValue[playerOneCard.value]< cardValue[playerTwoCard.value])
+
+            if (cardValue[playerOneCard.value]< cardValue[playerTwoCard.value]){
+              playerTwo.points += 3
             }
-            else if (cardValue [playerOneCard] > cardValue[playerTwoCard]){
-              this.points.playerOne += 3
+
+            else if (cardValue [playerOneCard.value] > cardValue[playerTwoCard.value]){
+              playerOne.points += 3
+             
             }
-            
-            
-            if (playerOneDeck.length == 0 && (playerTwoDeck.length = 0) && this.points.playerTwo> this.points.playerOne){
-              `Player two is the winner, points: ${this.points.playerTwo}`
-              `Player one lost,  points: ${this.points.playerOne} `
+            else if (cardValue [playerOneCard.value] == cardValue[playerTwoCard.value]){
+              playerOne.points += 0
+              playerOne.points += 0
+
+             
+            }
+            if ((playerOneDeck.cards.length == 0 || (playerTwoDeck.cards.length == 0) )&& playerTwo.points > playerOne.points){
+              console.log( `Player two is the winner, points: ${playerTwo.points}
+              Player one lost,  points: ${playerOne.points} `)
               turnOn= false
             }
             
             
-            if (playerOneDeck.length == 0&&(playerTwoDeck.length ==0)&& ththis.points.playerTwo < this.points.playerOneis){
-              `Player One is the winner, points: ${this.point.playerOne}`
-              `Player two lost, points: ${this.point.playerTwo}`
+           else if ((playerOneDeck.cards.length == 0 || (playerTwoDeck.length ==0))&& playerTwo.points < playerOne.points){
+              console.log(`Player One is the winner, points: ${playerOne.points}
+              Player two lost, points: ${playerTwo.points}`)
+           }
               turnOn = false
-            }
+            
           }
         }
         flipCards()
       }
-             alert(start())
+      start()
+      
 
        
-          let playerOne = new Player
-          let playerTwo = new Player
- 

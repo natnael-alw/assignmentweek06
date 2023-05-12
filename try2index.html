@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment WAR GAME</title>
-    <script src="try2.js"type="module"> </script>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+ 
 </head>
-<body>
+    <body>
+        <div id="mocha">
+            <p><a href="./try2index.html">Index</a></p>
+    <script src="./node_modules/mocha/mocha.js"></script>
+    <script src="./node_modules/chai/chai.js"></script>
+    <script src="try2.js"> </script>
+
+    <script>
+        mocha.setup('bdd')
+      </script>
+    <script src="test.js"></script>
+    <script>
+        mocha.run()
+      </script>
+
   
 </body>
 </html>
