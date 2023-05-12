@@ -1,4 +1,4 @@
-let playerOneDeck, playerTwoDeck
+//let playerOneDeck, playerTwoDeck
 
 const SUITS = ['♣︎','♦︎','♠︎','♥︎']
 const VALUES= [ '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
@@ -18,7 +18,7 @@ function deck(){
     return VALUES.map(value =>{
       return new Card(suit, value)
     })
-    
+    //uses the flatmap and map method to combine the suits and values
   })
 }
 
@@ -28,11 +28,10 @@ class Deck {
       
   }
 
-
 get numberOfCards (){
-return this.cards.length
+return this.cards.length  // to store the length of cardsarray
 }
-shuffle(){
+shuffle(){ // shuffles the cards by randomly assigning a new index
     for (let i =this.cards.length-1; i>0; i--){
     let index = Math.floor(Math.random()*(i+1))
     let newIndex =this.cards[index]
@@ -49,10 +48,6 @@ class Player{
   }
 }
 
-
-
-
-    
     
     function start(){
       
@@ -63,19 +58,16 @@ class Player{
       let deckMidpoint = Math.ceil(dek.numberOfCards/2)
      let playerOneDeck = new Deck (dek.cards.slice(0, deckMidpoint))
       let playerTwoDeck = new Deck (dek.cards.slice(deckMidpoint, dek.numberOfCards))
-      turnOn = true  //starts the turns right after shuffling
+      //divides the shuffled card and assigns to each players
 
       function flipCards(){
           let playerOne = new Player(0)
              let playerTwo = new Player(0)
         while ((playerOneDeck.cards.length && playerTwoDeck.cards.length)!== 0){
             let playerOneCard = playerOneDeck.cards.pop();
-            
-            let playerTwoCard = playerTwoDeck.cards.pop()
-     
-  
-          // console.log('round start')
-           //console.log(cardValue[playerOneCard.value]< cardValue[playerTwoCard.value])
+            let playerTwoCard = playerTwoDeck.cards.pop()    
+  // using the pop method it will issue a card for each player per round
+         
 
             if (cardValue[playerOneCard.value]< cardValue[playerTwoCard.value]){
               playerTwo.points += 3
@@ -94,7 +86,7 @@ class Player{
             if ((playerOneDeck.cards.length == 0 || (playerTwoDeck.cards.length == 0) )&& playerTwo.points > playerOne.points){
               console.log( `Player two is the winner, points: ${playerTwo.points}
               Player one lost,  points: ${playerOne.points} `)
-              turnOn= false
+       
             }
             
             
@@ -102,7 +94,7 @@ class Player{
               console.log(`Player One is the winner, points: ${playerOne.points}
               Player two lost, points: ${playerTwo.points}`)
            }
-              turnOn = false
+            
             
           }
         }
