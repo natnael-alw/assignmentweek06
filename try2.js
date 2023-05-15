@@ -95,7 +95,7 @@ class Player{
               Player two lost, points: ${playerTwo.points}`)
            }
            else if ((playerOneDeck.cards.length == 0 || (playerTwoDeck.length ==0))&& playerTwo.points == playerOne.points){
-            console.log(`Its a tie`)
+            console.log(`Sorry Its a tie`)
          }
             
           }
